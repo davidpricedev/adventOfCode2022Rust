@@ -12,3 +12,4 @@ At first glance, rust appears to borrow a lot from python
 - same preference for snake_case
 - same self argument for all instance methods
 - similar folder structure concepts (though thankfully no __init__.rs files needed!)
+- even some libraries (itertools) have the same name as python
