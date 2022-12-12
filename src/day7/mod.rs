@@ -2,8 +2,8 @@
 
 // pub fn run() {
 //     let file_contents = include_str!("./input.txt");
-//     println!("part1: {}", day7_part1(&file_contents));
-//     //println!("part2: {}", day6_part2(&file_contents));
+//     println!("part1: {}", part1(&file_contents));
+//     //println!("part2: {}", part2(&file_contents));
 // }
 
 // enum FsEntryType {
@@ -55,7 +55,7 @@
 //   }
 // }
 
-// fn day7_part1(file_contents: &str) -> i32 {
+// fn part1(file_contents: &str) -> i32 {
 //   let root = FsEntry { entry_type: FsEntryType::Directory, name: "/" };
 //   let mut dirs = Vec::new();
 //   let mut cwd = &root;

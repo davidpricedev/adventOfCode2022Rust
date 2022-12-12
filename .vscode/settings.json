@@ -10,5 +10,6 @@
     "editorInlayHint.parameterForeground": "#486148f0"
   },
   "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
-  "rust-analyzer.inlayHints.reborrowHints.enable": "always"
+  "rust-analyzer.inlayHints.reborrowHints.enable": "always",
+  "editor.tabSize": 4
 }
