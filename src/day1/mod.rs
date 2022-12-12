@@ -1,15 +1,15 @@
 pub fn run() {
     let file_contents = include_str!("./input.txt");
-    println!("part1: {}", day1_part1(file_contents));
-    println!("part2: {}", day1_part2(file_contents));
+    println!("part1: {}", part1(file_contents));
+    println!("part2: {}", part2(file_contents));
 }
 
-fn day1_part1(contents: &str) -> i32 {
+fn part1(contents: &str) -> i32 {
     let sums = get_sums_by_elf(contents);
     sums.max().unwrap()
 }
 
-fn day1_part2(contents: &str) -> i32 {
+fn part2(contents: &str) -> i32 {
     let mut sums: Vec<i32> = get_sums_by_elf(contents).collect::<_>();
     sums.sort();
     sums.reverse();
