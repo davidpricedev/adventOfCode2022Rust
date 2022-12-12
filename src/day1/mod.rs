@@ -1,39 +1,26 @@
-use itertools::Itertools;
-use std::fs;
-
 pub fn run() {
-    println!("part1: {}", day1_part1());
-    println!("part2: {}", day1_part2());
+    let file_contents = include_str!("./input.txt");
+    println!("part1: {}", day1_part1(file_contents));
+    println!("part2: {}", day1_part2(file_contents));
 }
 
-fn day1_part1() -> i32 {
-    let file_path = "src/day1/input.txt";
-    let contents = fs::read_to_string(file_path).expect("Should have been able to read the file");
-    let sums = get_sums_by_elf(contents.as_str());
-    return sums.max().unwrap();
+fn day1_part1(contents: &str) -> i32 {
+    let sums = get_sums_by_elf(contents);
+    sums.max().unwrap()
 }
 
-fn day1_part2() -> i32 {
-    let file_path = "src/day1/input.txt";
-    let contents = fs::read_to_string(file_path).expect("Should have been able to read the file");
-    let sums = get_sums_by_elf(contents.as_str());
-    let mut vsums: Vec<_> = sums.collect_vec();
-    vsums.sort();
-    return last_n(&vsums, 3).iter().sum();
+fn day1_part2(contents: &str) -> i32 {
+    let mut sums: Vec<i32> = get_sums_by_elf(contents).collect::<_>();
+    sums.sort();
+    sums.reverse();
+    sums[0..3].iter().sum::<i32>()
 }
 
 fn get_sums_by_elf(file_content: &str) -> impl Iterator<Item = i32> + '_ {
-    let chunks = file_content.split("\n\n");
-    return chunks.map(|chunk| {
-        let lines = chunk.split("\n");
-        let int_lines = lines
-            .map(|y| y.parse::<i32>())
-            .filter(|y| y.is_ok())
-            .map(|y| y.unwrap());
-        return int_lines.sum();
-    });
-}
-
-fn last_n<T>(v: &Vec<T>, n: usize) -> &[T] {
-    return &v[(v.len() - n)..];
+    file_content.split("\n\n").map(|chunk| {
+        chunk.trim()
+            .lines()
+            .map(|x| x.parse::<i32>().unwrap())
+            .sum()
+    })
 }
