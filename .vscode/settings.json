@@ -3,11 +3,11 @@
   "files.autoSave": "onFocusChange",
   "debug.allowBreakpointsEverywhere": true,
   "workbench.colorCustomizations": {
-    "editorInlayHint.foreground": "#868686f0",
+    "editorInlayHint.foreground": "#86868660",
     "editorInlayHint.background": "#18181800",
     // Overrides for specific kinds of inlay hints
-    "editorInlayHint.typeForeground": "#486148f0",
-    "editorInlayHint.parameterForeground": "#486148f0"
+    "editorInlayHint.typeForeground": "#48614860",
+    "editorInlayHint.parameterForeground": "#48614860"
   },
   "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
   "rust-analyzer.inlayHints.reborrowHints.enable": "always",
