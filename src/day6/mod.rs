@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 pub fn run() {
     let file_contents = include_str!("./input.txt");
     println!("part1: {}", part1(&file_contents));
@@ -38,16 +40,14 @@ fn part2(file_contents: &str) -> usize {
     result.0 + window_size
 }
 
-/**
-Couldn't figure out how to import the [set](https://docs.rs/sets/latest/sets/) library, so I'm implementing my own duplicate detection
-via looping over the list once, and for each item, counting the number of times that item appears.
-This is O(n^2)
-*/
 fn are_all_values_unique(values: &[&str]) -> bool {
-    for i in 0..values.len() {
-        if values.iter().filter(|y| values[i] == **y).count() > 1 {
+    let mut myset: HashSet<&str> = HashSet::new();
+    for x in values {
+        if myset.contains(x) {
             return false;
         }
+
+        myset.insert(x);
     }
 
     true
